@@ -1,0 +1,896 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #eef1f5;
+    min-height: 100vh;
+}
+
+/* ============ LOGIN PAGE ============ */
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-card {
+    background: #fff;
+    width: 380px;
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.login-icon {
+    width: 70px;
+    height: 70px;
+    background: #eaf3ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+    font-size: 34px;
+    color: #1e88e5;
+    font-weight: bold;
+}
+
+.login-card h2 {
+    color: #222;
+    margin-bottom: 4px;
+}
+
+.login-card p.subtitle {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #444;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #dcdfe4;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #1e88e5;
+}
+
+.btn-login {
+    width: 100%;
+    background: #1565c0;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.btn-login:hover {
+    background: #0d47a1;
+}
+
+.footer-note {
+    margin-top: 30px;
+    font-size: 11px;
+    color: #aaa;
+}
+
+.alert-error {
+    background: #fdecea;
+    color: #d32f2f;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* ============ LAYOUT UTAMA (SETELAH LOGIN) ============ */
+.topbar {
+    background: #263238;
+    color: #fff;
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+}
+
+.main-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px 16px 60px 16px;
+}
+
+/* ============ DASHBOARD ============ */
+.greeting {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.dashboard-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 18px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.menu-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    text-decoration: none;
+    display: block;
+    transition: transform 0.15s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.menu-card h3 {
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.menu-card span {
+    font-size: 12px;
+    color: #2e7d32;
+}
+
+.menu-card span.blue { color: #1565c0; }
+.menu-card span.orange { color: #ef6c00; }
+.menu-card span.gray { color: #888; }
+
+.logout-btn {
+    display: block;
+    text-align: center;
+    background: #fdecea;
+    color: #d32f2f;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 16px;
+    grid-column: span 2;
+}
+
+.fab-add {
+    position: fixed;
+    bottom: 25px;
+    right: calc(50% - 240px + 20px);
+    width: 50px;
+    height: 50px;
+    background: #1565c0;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 500px) {
+    .fab-add { right: 20px; }
+}
+
+/* ============ DATA PASIEN LIST ============ */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.page-header .back-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.page-header h2 {
+    font-size: 17px;
+    flex-grow: 1;
+    color: #1a1a1a;
+}
+
+.btn-tambah {
+    background: #2e7d32;
+    color: #fff;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: 1px solid #dcdfe4;
+    margin-bottom: 16px;
+    font-size: 13px;
+    outline: none;
+}
+
+.pasien-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    position: relative;
+}
+
+.pasien-card .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.pasien-card h4 {
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge.laki { background: #e3f2fd; color: #1565c0; }
+.badge.perempuan { background: #fce4ec; color: #c2185b; }
+
+.pasien-card p {
+    font-size: 12.5px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.action-icons {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-btn.edit { background: #f9a825; }
+.icon-btn.delete { background: #e53935; }
+
+.pagination-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.pagination-box .pages a,
+.pagination-box .pages span {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid #dcdfe4;
+    border-radius: 6px;
+    margin-left: 4px;
+    color: #444;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.pagination-box .pages .active {
+    background: #1565c0;
+    color: #fff;
+    border-color: #1565c0;
+}
+
+/* ============ FORM TAMBAH / EDIT PASIEN ============ */
+.form-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.form-card .form-group label {
+    font-weight: 600;
+    color: #333;
+}
+
+.btn-simpan {
+    width: 100%;
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-simpan:hover { background: #1b5e20; }
+
+.btn-cetak {
+    width: 100%;
+    background: #00897b;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-cetak:hover { background: #00695c; }
+
+.alert-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+/* ============ SELECT / RADIO / CHECKBOX ============ */
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #dcdfe4;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.radio-group label, .checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #333;
+    font-weight: normal;
+}
+
+.two-col {
+    display: flex;
+    gap: 12px;
+}
+
+.two-col .form-group {
+    flex: 1;
+}
+
+/* ============ DOKTER LIST ============ */
+.dokter-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.dokter-card .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.dokter-card h4 {
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.badge-spesialis {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    background: #eef2f7;
+    color: #37474f;
+}
+
+.dokter-card p {
+    font-size: 12.5px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.btn-hapus-full {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-edit-full {
+    background: #f9a825;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* ============ STATUS BADGE (ANTREAN / RESEP) ============ */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 700;
+}
+
+.status-badge::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.status-menunggu { background: #eceff1; color: #455a64; }
+.status-menunggu::before { background: #78909c; }
+
+.status-diracik  { background: #fff3e0; color: #ef6c00; }
+.status-diracik::before { background: #f9a825; }
+
+.status-siap     { background: #e8f5e9; color: #2e7d32; }
+.status-siap::before { background: #43a047; }
+
+.status-selesai  { background: #e3f2fd; color: #1565c0; }
+.status-selesai::before { background: #1e88e5; }
+
+.status-lunas    { background: #e8f5e9; color: #2e7d32; }
+.status-lunas::before { background: #43a047; }
+
+.status-belum    { background: #fdecea; color: #d32f2f; }
+.status-belum::before { background: #e53935; }
+
+/* ============ FARMASI ANTREAN LIST ============ */
+.farmasi-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+}
+
+.farmasi-kode {
+    background: #eef2f7;
+    color: #37474f;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.farmasi-info {
+    flex-grow: 1;
+}
+
+.farmasi-info h4 {
+    font-size: 13.5px;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+}
+
+.farmasi-info p {
+    font-size: 12px;
+    color: #777;
+}
+
+.farmasi-footer-note {
+    background: #f5f7fa;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #555;
+    margin-top: 14px;
+}
+
+/* ============ DETAIL RESEP ============ */
+.detail-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 14px;
+}
+
+.detail-header h4 {
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.detail-header p {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.5;
+}
+
+.section-label {
+    font-size: 11.5px;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 16px 0 8px 0;
+}
+
+.obat-item {
+    background: #f7f9fb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+}
+
+.obat-item h5 {
+    font-size: 13px;
+    color: #222;
+    margin-bottom: 3px;
+}
+
+.obat-item p {
+    font-size: 12px;
+    color: #666;
+}
+
+.obat-item p b { color: #1565c0; }
+
+.catatan-dokter-box {
+    background: #eef2f7;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12.5px;
+    color: #444;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+.btn-status-action {
+    width: 100%;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.btn-status-action.diracik { background: #2e7d32; color: #fff; }
+.btn-status-action.siap    { background: #f9a825; color: #fff; }
+.btn-status-action.disabled {
+    background: #eceff1;
+    color: #90a4ae;
+    cursor: not-allowed;
+}
+
+/* ============ INVOICE / KWITANSI ============ */
+.invoice-total-box {
+    background: #e3f2fd;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invoice-total-box .label {
+    font-size: 11px;
+    color: #1565c0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.invoice-total-box .amount {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0d47a1;
+}
+
+.invoice-total-box .trx-id {
+    font-size: 11px;
+    color: #1565c0;
+    background: #fff;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.btn-secondary-outline {
+    width: 100%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #dcdfe4;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+/* ============ LAPORAN ============ */
+.stat-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.stat-box .label {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-box .value {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-top: 4px;
+}
+
+.trend-up { color: #2e7d32; font-size: 11px; font-weight: 700; }
+
+.badge-mini {
+    background: #e3f2fd;
+    color: #1565c0;
+    font-size: 10.5px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.periode-tag {
+    display: inline-block;
+    background: #eef2f7;
+    color: #444;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    height: 100px;
+    margin: 14px 0 6px 0;
+}
+
+.chart-bars .bar-col {
+    flex: 1;
+    text-align: center;
+}
+
+.chart-bars .bar {
+    background: #42a5f5;
+    border-radius: 6px 6px 0 0;
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.chart-bars .bar-label {
+    font-size: 11px;
+    color: #888;
+}
+
+.kelola-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    margin-bottom: 14px;
+}
+
+.btn-export {
+    width: 100%;
+    background: #00897b;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.btn-logout-full {
+    width: 100%;
+    background: #d32f2f;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+/* ============ MODAL POPUP (EXPORT PDF) ============ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px 26px;
+    text-align: center;
+    max-width: 320px;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    background: #fde8ea;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+    font-size: 26px;
+}
+
+.modal-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.modal-desc {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.btn-modal-ok {
+    width: 100%;
+    background: #00897b;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-modal-ok:hover { background: #00695c; }
